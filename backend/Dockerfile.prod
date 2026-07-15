@@ -25,7 +25,7 @@ COPY backend/package.json backend/package.json
 # Backend scripts (custom db:generate, etc.)
 COPY backend/scripts backend/scripts
 
-RUN pnpm install --no-frozen-lockfile --filter backend
+RUN pnpm approve-builds @prisma/client @prisma/engines && pnpm install --no-frozen-lockfile --filter backend
 
 # Copy source preserving the workspace structure
 COPY backend/prisma ./backend/prisma
